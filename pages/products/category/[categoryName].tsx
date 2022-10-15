@@ -1,6 +1,6 @@
 import { NextPage, GetStaticProps, GetStaticPaths } from 'next'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Product } from '../../../models/interfaces'
 import Image from 'next/future/image'
 import AppRating from '../../../components/ui/AppRating'
@@ -42,6 +42,10 @@ const ProductsByCategory : NextPage<ProductsByCategoryProps> = (props) => {
 
     const [products, setProducts] = useState<Product[]>(props.products)
      
+    useEffect(() => {
+        setProducts(props.products)
+    }, [props.products])
+
     return (
         <div>
             <div className='flex flex-wrap gap-4 justify-center'>

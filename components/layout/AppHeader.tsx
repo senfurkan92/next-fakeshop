@@ -1,6 +1,6 @@
 import Image from "next/future/image"
 import AppLink from "../ui/AppLink"
-import AppAutoCarousel from "../carousel/AppAutoCarousel"
+import AppPerViewCarousel from "../carousel/AppPerViewCarousel"
 import { useEffect, useState } from "react"
 
 const AppHeader = () : JSX.Element => {
@@ -22,9 +22,9 @@ const AppHeader = () : JSX.Element => {
                         </div>
                     </AppLink>
                     <div className="flex items-center gap-4 overflow-x-auto">
-                        <AppAutoCarousel links={categories.map((x,i) => (
-                            <AppLink href={'/'} key={i+1000}>
-                                <div>Category</div>
+                        <AppPerViewCarousel links={categories.map((x,i) => (
+                            <AppLink href={`/products/category/${x}`} key={i+1000}>
+                                <div className="uppercase">{x}</div>
                             </AppLink>
                         ))} />
                     </div>

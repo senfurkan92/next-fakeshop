@@ -3,6 +3,7 @@ import { Product } from '../../models/interfaces'
 import AppCardCarousel from '../../components/carousel/AppCardCarousel'
 import Image from 'next/future/image'
 import AppRating from '../../components/ui/AppRating'
+import Link from 'next/link'
 
 interface ProductProp {
     item: Product
@@ -57,9 +58,11 @@ const ProductDetail : NextPage<ProductProp> = ({item}) => {
                     <span className='text-xs capitalize px-4 py-1 bg-warning text-warning-content rounded-lg'>
                         {item.brand}
                     </span>
-                    <span className='text-xs capitalize px-4 py-1 bg-info text-info-content rounded-lg'>
-                        {item.category}
-                    </span>
+                    <Link href={`/products/category/${item.category}`}>
+                        <span className='text-xs capitalize px-4 py-1 bg-info text-info-content rounded-lg cursor-pointer'>
+                            {item.category}
+                        </span>
+                    </Link>
                 </p>
                 <p className='mb-4'>
                     {item.description}
