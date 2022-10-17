@@ -1,12 +1,16 @@
 import { NextPage, GetStaticProps } from 'next'
 import Link from 'next/link'
 import Image from 'next/future/image'
+import path from 'path'
 
 interface HomeProps {
   categories: string[]
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
+  console.log(path.join(__dirname,'../','models'))
+  console.log(path.join(process.cwd(),'models'))
+
 
   var res = await fetch('https://dummyjson.com/products/categories')
   var data = await res.json()

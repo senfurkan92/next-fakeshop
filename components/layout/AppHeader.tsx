@@ -2,6 +2,7 @@ import Image from "next/future/image"
 import AppLink from "../ui/AppLink"
 import AppPerViewCarousel from "../carousel/AppPerViewCarousel"
 import { useEffect, useState } from "react"
+import AppFilterForm from "../ui/AppFilterForm"
 
 const AppHeader = () : JSX.Element => {
     const [categories, setCategories] = useState<string[]>([])
@@ -28,6 +29,10 @@ const AppHeader = () : JSX.Element => {
                             </AppLink>
                         ))} />
                     </div>
+                </div>
+                <div className="divider">filter</div>
+                <div className="flex items-center justify-center gap-4">
+                    <AppFilterForm/>
                 </div>
             </div>
         </header>
